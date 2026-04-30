@@ -12,85 +12,56 @@ export const disciplinas: Disciplina[] = [
   {
     id: "cc101",
     nome: "Introdução à Programação",
-    professor: "Prof. Dr. João Silva",
+    professor: "Prof. Programador",
     semestre: 1,
-    descricao: "Conceitos fundamentais de programação, lógica computacional e introdução ao pensamento algorítmico.",
-    ementa: "Conceitos básicos de programação, variáveis, tipos de dados, estruturas de controle, funções e arrays.",
+    descricao: "Conceitos fundamentais de programação.",
+    ementa: "Conceitos básicos de programação.",
     objetivos: [
-      "Compreender os conceitos fundamentais de programação",
-      "Desenvolver habilidades de lógica computacional",
-      "Escrever programas simples em linguagem de programação",
-      "Entender estruturas de dados básicas"
+      "Compreender os conceitos fundamentais de programação"
     ]
 },
   {
     id: "cc202",
     nome: "Estrutura de Dados",
-    professor: "Prof. Dra. Maria Santos",
+    professor: "Prof. Estrutura Dados",
     semestre: 2,
-    descricao: "Estudo das principais estruturas de dados: listas, pilhas, filas, árvores e grafos.",
-    ementa: "Listas encadeadas, pilhas, filas, árvores binárias, tabelas hash, grafos e análise de complexidade.",
+    descricao: "Estudo das principais estruturas de dados.",
+    ementa: "Conceitos de estruturas de dados.",
     objetivos: [
-      "Implementar estruturas de dados fundamentais",
-      "Analisar a complexidade de algoritmos",
-      "Aplicar estruturas de dados em problemas práticos",
-      "Otimizar soluções computacionais"
+      "Implementar estruturas de dados fundamentais"
     ]
   },
   {
     id: "cc303",
     nome: "Banco de Dados",
-    professor: "Prof. Dr. Carlos Costa",
+    professor: "Prof. Banco Dados",
     semestre: 3,
-    descricao: "Conceitos de banco de dados relacionais, SQL, normalização e design de bancos de dados.",
-    ementa: "Modelo relacional, linguagem SQL, normalização, índices, transações e segurança em bancos de dados.",
+    descricao: "Conceitos de banco de dados relacionais.",
+    ementa: "Conceitos de banco de dados relacionais.",
     objetivos: [
-      "Compreender o modelo relacional de dados",
-      "Criar e manipular bancos de dados com SQL",
-      "Projetar esquemas de dados normalizados",
-      "Implementar soluções de armazenamento eficiente"
+      "Compreender o modelo relacional de dados"
     ]
   },
   {
     id: "cc404",
     nome: "Programação Web",
-    professor: "Prof. Dr. Rafael Oliveira",
+    professor: "Prof. Web Master",
     semestre: 4,
-    descricao: "Desenvolvimento de aplicações web com HTML, CSS, JavaScript, frameworks modernos e backend.",
-    ementa: "Frontend com HTML/CSS/JavaScript, frameworks como React/Vue, backend com Node.js/Express, APIs RESTful.",
+    descricao: "Desenvolvimento de aplicações web.",
+    ementa: "Conceitos de programação web.",
     objetivos: [
-      "Desenvolver interfaces web responsivas",
-      "Criar aplicações full-stack",
-      "Implementar APIs RESTful",
-      "Utilizar frameworks web modernos"
-    ]
-  },
-  {
-    id: "cc505",
-    nome: "Engenharia de Software",
-    professor: "Prof. Dra. Fernanda Lima",
-    semestre: 5,
-    descricao: "Processos, metodologias e práticas de desenvolvimento de software em larga escala.",
-    ementa: "SDLC, UML, padrões de design, testes, refatoração, integração contínua e metodologias ágeis.",
-    objetivos: [
-      "Compreender ciclos de vida de desenvolvimento",
-      "Aplicar padrões de design",
-      "Implementar testes automatizados",
-      "Utilizar metodologias ágeis"
+      "Desenvolver interfaces web responsivas"
     ]
   },
   {
     id: "cc606",
     nome: "Machine Learning",
-    professor: "Prof. Dr. Lucas Martins",
+    professor: "Prof. Machine Learning",
     semestre: 6,
-    descricao: "Fundamentos de machine learning, algoritmos de aprendizado supervisionado e não-supervisionado.",
-    ementa: "Regressão, classificação, clustering, redes neurais, processamento de linguagem natural e visão computacional.",
+    descricao: "Fundamentos de machine learning.",
+    ementa: "Conceitos de machine learning.",
     objetivos: [
-      "Entender algoritmos de machine learning",
-      "Implementar modelos de aprendizado",
-      "Processar e analisar grandes volumes de dados",
-      "Avaliar e otimizar modelos"
+      "Entender algoritmos de machine learning"
     ]
   }
 ];
