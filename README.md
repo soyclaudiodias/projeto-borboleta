@@ -17,6 +17,20 @@ Uma aplicação web moderna para gerenciamento de disciplinas acadêmicas com au
 - Consultem dados do professor, horário, sala e avaliações
 - Visualizem ementa, objetivos e referências bibliográficas
 
+## Wireframe
+
+### Protótipo para modelo web
+
+O modelo web foi projetado para telas maiores, iniciando em uma tela de login que, após preenchida, segue para a página inicial onde haverá diversos cards para cada disciplina. Clicando em um dos cards, te levará para uma nova página dinâmica com as informações preenchidas (imagem em falta).
+
+<img width="1022" height="711" alt="image" src="https://github.com/user-attachments/assets/3b423aae-d75e-41f0-b507-019191d2bfc5" />
+<hr>
+<img width="2880" height="2048" alt="image" src="https://github.com/user-attachments/assets/1230cb32-08fa-405a-a7c5-7b9d780afdfa" />
+<hr>
+<img width="543" height="710" alt="image" src="https://github.com/user-attachments/assets/9b877e99-cf8e-43c1-9ac1-782fdfb2da12" />
+
+---
+
 ## Tecnologias Utilizadas
 
 - **Next.js** 16 - Framework React com SSR e otimizações
