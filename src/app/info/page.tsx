@@ -1,67 +1,234 @@
-import "../globals.css";
+'use client';
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function Home() {
+type Material = {
+  id: number;
+  nome: string;
+  preco: number;
+  tipo: string;
+};
+
+export default function InfoPage() {
+
+  const [materiais, setMateriais] =
+    useState<Material[]>([]);
+
+  useEffect(() => {
+
+    fetch("/api/materiais")
+      .then((res) => res.json())
+      .then((data) => {
+        setMateriais(data);
+      });
+
+  }, []);
+
   return (
     <main>
-       <div className="tp">
-            <div className="nome">Sucatas</div>
-            <div className="tpbt">
-                <a href="/" className="bt">Home</a>
-                <a href="/mat" className="bt">Calculo de Preço</a>
-            </div>
+
+      <div className="tp">
+
+        <div className="nome">
+          Sucatas
         </div>
-        <div id="info">
-            <div className="sessao1">
-                <div className="titulo">Metal</div>
-                <div className="texto">As sucatas metálicas compreendem uma ampla variedade de 
-                materiais, como alumínio, cobre, ferro, aço inoxidável e latão. 
-                <br /><br /><div className="metal"><img src="metal.png" alt="metal"></img></div>
-                Dentre os exemplos de objetos temos: 
-                latinhas de comida e bebida, juntas de canos, canos, pregos e parafusos, fios de cobre desencapados e
-                algumas peças de veículo. E alguns exemplos que não são reciclados: latas de aerossóis, lata de tinta, 
-                pilhas e baterias, clipes e grampos, e esponjas de aço.</div>
-                
-            </div>
-            <div className="sessao2">
-                <div className="titulo">Eletrônica</div>
-                <div className="texto">Sucatas eletrônicas são compostas por placas de circuito, 
-                fios e componentes retirados de dispositivos eletrônicos descartados. 
-                Possuem metais preciosos como ouro e prata, além de materiais recuperáveis 
-                como cobre e alumínio.
-                <div className="elec"><img src="eletronicos.png" alt="elec"></img></div>
-                <br /><br />Dentre os exemplos de objetos temos: todos os aparelhos que ligam à tomada ou 
-                usam pilhas e baterias, como telemóveis, computadores, televisores, frigoríficos, micro-ondas,
-                fios, cabos,  e outros acessórios eletrónicos</div>
-            </div>
-            <div className="sessao3">
-                <div className="titulo">Plásticos</div>
-                <div className="texto">Plásticos como PET e ABS são amplamente usados em embalagens, 
-                eletrônicos e eletrodomésticos. O PET é comumente utilizado em garrafas de 
-                bebidas e embalagens de alimentos. O ABS é encontrado em peças automotivas e eletrônicos.
-                <div className="plas"><img src="plastico.png" alt="plastico"></img></div>
-                <br /><br />Dentre os exemplos de objetos temos: 
-                garrafas de água e refrigerante (PET), frascos de produtos de limpeza, sacos plásticos, tampas de 
-                garrafas e frascos, potes de iogurte, embalagens de produtos cosméticos e medicamentos, baldes, 
-                brinquedos, lixeiras, Tupperware e alguns tipos de utensílios de cozinha, e PVC. 
-                E alguns exemplos que não são reciclados: espumas, esponjas de cozinha, isopor, acoplamentos 
-                metálicos, cabos de panelas e tomadas.</div>
-                
-            </div>
-            <div className="sessao4">
-                <div className="titulo">Papel e Papelão</div>
-                <div className="texto">Papelão ondulado, papel branco e papel misto são componentes 
-                comuns nesse grupo. Amplamente usados em embalagens, esses materiais têm uma demanda constante. 
-                O papel e papelão devem ser descartados secos e limpos, sem restos de comida.
-                <div className="pp"><img src="papel%20e%20papelao.png" alt="pp"></img></div>
-                <br /><br />Dentre os exemplos de objetos temos: papel branco, jornais, revistas, cadernos, formulários 
-                de computador, fotocópias, rascunhos, envelopes e cartas, caixas de papelão, sacos de papel, 
-                cartazes e folhetos. E alguns exemplos que não são reciclados: papéis com resíduos de comida, 
-                papel celofane e papel vegetal, papéis encerados ou plastificados, papel carbono, fotografias 
-                e fitas adesivas, papéis metalizados, como embalagens de salgadinhos, papel higiênico, lenços 
-                de papel e guardanapos.</div>
-            </div>
+
+        <div className="tpbt">
+
+          <Link href="/" className="bt">
+            Home
+          </Link>
+
+          <Link href="/mat" className="bt">
+            Calcular Preço
+          </Link>
+
         </div>
+      </div>
+
+      <div id="info">
+
+        <section className="sessao1">
+
+          <div className="texto">
+
+            <div className="titulo">
+              Metal
+            </div>
+
+            As sucatas metálicas compreendem
+            materiais como alumínio, cobre,
+            ferro, aço inoxidável e latão.
+
+            <br /><br />
+
+            Exemplos:
+            latinhas, canos, parafusos,
+            fios de cobre e peças automotivas.
+
+            <br /><br />
+
+            Alguns materiais não recicláveis:
+            latas de tinta, aerossóis,
+            pilhas e esponjas de aço.
+
+          </div>
+
+          <div className="metal">
+            <img
+              src="/metal.png"
+              alt="metal"
+            />
+          </div>
+
+        </section>
+
+        <section className="sessao2">
+
+          <div className="texto">
+
+            <div className="titulo">
+              Eletrônicos
+            </div>
+
+            Sucatas eletrônicas possuem
+            placas, fios e componentes
+            retirados de dispositivos.
+
+            <br /><br />
+
+            Contêm materiais valiosos como
+            cobre, alumínio, ouro e prata.
+
+            <br /><br />
+
+            Exemplos:
+            computadores, celulares,
+            televisões, micro-ondas,
+            cabos e acessórios.
+
+          </div>
+
+          <div className="elec">
+            <img
+              src="/eletronicos.png"
+              alt="eletronicos"
+            />
+          </div>
+
+        </section>
+
+        <section className="sessao3">
+
+          <div className="texto">
+
+            <div className="titulo">
+              Plásticos
+            </div>
+
+            Plásticos como PET, PVC e ABS
+            são amplamente recicláveis.
+
+            <br /><br />
+
+            Exemplos:
+            garrafas, embalagens,
+            brinquedos, baldes e recipientes.
+
+            <br /><br />
+
+            Não recicláveis:
+            esponjas, isopor e
+            plásticos metalizados.
+
+          </div>
+
+          <div className="plas">
+            <img
+              src="/plastico.png"
+              alt="plastico"
+            />
+          </div>
+
+        </section>
+
+        <section className="sessao4">
+
+          <div className="texto">
+
+            <div className="titulo">
+              Papel e Papelão
+            </div>
+
+            Papéis e papelões devem estar
+            secos e limpos para reciclagem.
+
+            <br /><br />
+
+            Exemplos:
+            jornais, revistas, caixas,
+            cadernos e envelopes.
+
+            <br /><br />
+
+            Não recicláveis:
+            papel higiênico,
+            papéis engordurados
+            e fotografias.
+
+          </div>
+
+          <div className="pp">
+            <img
+              src="/papel e papelao.png"
+              alt="papel"
+            />
+          </div>
+
+        </section>
+
+      </div>
+
+      <div className="listaMateriais">
+
+        <h1>
+          Materiais da API
+        </h1>
+
+        {materiais.map((m) => (
+
+          <div
+            key={m.id}
+            className="cardMaterial"
+          >
+
+            <h2>
+              {m.nome}
+            </h2>
+
+            <p>
+              Tipo: {m.tipo}
+            </p>
+
+            <p>
+              Preço médio:
+              R$ {m.preco}/kg
+            </p>
+
+            <Link
+              href={`/material/${m.nome}`}
+              className="bt"
+            >
+              Ver Material
+            </Link>
+
+          </div>
+
+        ))}
+
+      </div>
+
     </main>
   );
 }
