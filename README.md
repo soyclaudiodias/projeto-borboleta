@@ -1,6 +1,6 @@
-# Sucatas - Reciclagem Inteligente
+# Portal Universitário
 
-Uma aplicação web moderna para descobrir informações sobre materiais recicláveis e calcular o valor estimado de sucatas.
+Uma aplicação web moderna para gerenciamento de disciplinas acadêmicas com autenticação de usuários.
 
 ## Integrantes do Projeto
 
@@ -10,10 +10,12 @@ Uma aplicação web moderna para descobrir informações sobre materiais recicl�
 
 ## Sobre o Projeto
 
-**Sucatas** é uma plataforma interativa que ajuda usuários a:
-- Conhecer mais sobre diferentes tipos de materiais recicláveis
-- Calcular o valor estimado de suas sucatas com base no tipo de material e peso
-- Incentivar práticas de reciclagem e sustentabilidade
+**Portal Universitário** é uma plataforma interativa que permite que os alunos:
+- Façam login de forma segura
+- Vejam todas as disciplinas disponíveis em cards interativos
+- Acessem informações detalhadas sobre cada disciplina
+- Consultem dados do professor, horário, sala e avaliações
+- Visualizem ementa, objetivos e referências bibliográficas
 
 ## Tecnologias Utilizadas
 
@@ -28,138 +30,105 @@ Uma aplicação web moderna para descobrir informações sobre materiais recicl�
 ```
 src/
 ├── app/
-│   ├── page.tsx              # Página inicial (Home)
-│   ├── info/
-│   │   └── page.tsx          # Informações sobre materiais
-│   ├── mat/
-│   │   └── page.tsx          # Calculadora de preço de sucatas
-│   ├── material/
+│   ├── page.tsx                    # Página inicial com cards de disciplinas
+│   ├── login/
+│   │   └── page.tsx                # Página de autenticação
+│   ├── disciplina/
 │   │   └── [id]/
-│   │       └── pages.tsx     # Detalhes de um material específico
-│   ├── api/
-│   │   ├── calcular/
-│   │   │   └── route.ts      # API para calcular valor de sucatas
-│   │   └── materiais/
-│   │       └── route.ts      # API para listar materiais
-│   ├── globals.css           # Estilos globais
-│   └── layout.tsx            # Layout padrão das páginas
-├── public/                   # Arquivos estáticos (imagens)
+│   │       └── page.tsx            # Detalhes dinâmicos da disciplina
+│   ├── globals.css                 # Estilos globais
+│   └── layout.tsx                  # Layout padrão com AuthProvider
+├── context/
+│   └── AuthContext.tsx             # Contexto de autenticação
+├── data/
+│   └── disciplinas.ts              # Dados e tipos de disciplinas
+├── components/
+│   └── ProtectedRoute.tsx           # Componente para proteção de rotas
+├── public/                         # Arquivos estáticos
 ├── package.json
 ├── tsconfig.json
 └── next.config.ts
 ```
 
-## Páginas Principais
-
-### 1. **Home** (`/`)
-- Página inicial com apresentação do projeto
-- Links de navegação para as demais seções
-- Design atrativo com imagem de fundo
-
-### 2. **Informações** (`/info`)
-- Catálogo de materiais recicláveis
-- Categorias: Metais, Eletrônicos, Plásticos, Papel
-- Descrição de cada material e exemplos de uso
-
-### 3. **Calcular Preço** (`/mat`)
-- Interface intuitiva com dropdowns para seleção
-- Seleção de tipo de material
-- Campo para entrada do peso
-- Cálculo em tempo real do valor estimado em BRL
-
-
-## Materiais Suportados
-
-### Metais
-- Ferro, Alumínio, Cobre, Latão, Latas Prensadas
-
-### Eletrônicos
-- Baterias
-
-### Plásticos
-- PET, Polipropileno, PVC, Acrílico
-
-### Papel
-- Papel Branco, Revistas/Jornais, Cadernos, Papelão
-
-
 ## Como Executar
 
 ### Pré-requisitos
-- Node.js 18+ instalado
+
+- Node.js 18+
+- npm ou yarn
 
 ### Instalação
 
 ```bash
 # Instalar dependências
 npm install
+```
 
-# Executar em modo desenvolvimento
+### Desenvolvimento
+
+```bash
+# Iniciar servidor de desenvolvimento
 npm run dev
-
-# Build para produção
-npm build
-
-# Executar em produção
-npm start
 ```
 
 A aplicação estará disponível em `http://localhost:3000`
 
+### Build e Produção
 
-## APIs
+```bash
+# Gerar build de produção
+npm run build
 
-### POST `/api/calcular`
-Calcula o valor estimado de uma sucata.
-
-**Request:**
-```json
-{
-  "material": "Cobre",
-  "peso": 10
-}
+# Iniciar servidor em produção
+npm start
 ```
 
-**Response:**
-```json
-{
-  "total": 27.50
-}
-```
+## Credenciais de Teste
 
-### GET `/api/materiais`
-Retorna lista de materiais com informações básicas.
+Para testar a aplicação, use:
 
-**Response:**
-```json
-[
-  {
-    "id": 1,
-    "nome": "Cobre",
-    "preco": 2.75,
-    "tipo": "Metal"
-  },
-  ...
-]
-```
-
+- **Email:** `aluno@universidade.edu.br` (ou qualquer email válido)
+- **Senha:** `123456`
 
 ## Funcionalidades
 
-- Interface responsiva para desktop e mobile  
-- Cálculo de preço em tempo real  
-- Suporte a múltiplas categorias de materiais  
-- Valores em moeda brasileira (BRL)  
-- Navegação intuitiva entre páginas  
-- APIs RESTful para extensibilidade  
+### Autenticação
+- Login com email e senha
+- Persistência de sessão com localStorage
+- Logout seguro
+- Proteção de rotas autenticadas
 
+### Home (Página Inicial)
+- Grid de cards com todas as disciplinas
+- Exibição de informações resumidas
+- Links para páginas de detalhes
+- Botão de logout
 
-## Scripts Disponíveis
+### Detalhes da Disciplina
+- Informações completas sobre a disciplina
+- Ementa e objetivos
+- Navegação de volta para home
 
-- `npm run dev` - Inicia servidor em modo desenvolvimento
-- `npm run build` - Cria build otimizado para produção
-- `npm start` - Executa aplicação em produção
-- `npm run lint` - Executa linter para verificar qualidade do código
+## Fluxo de Uso
 
+1. Usuário acessa a aplicação → é redirecionado para `/login`
+2. Faz login com credenciais válidas
+3. É redirecionado para `/` (home com cards de disciplinas)
+4. Clica em uma disciplina para ver detalhes em `/disciplina/[id]`
+5. Pode voltar para home ou fazer logout
 
+## Próximas Melhorias
 
+- [ ] Integração com backend real para autenticação
+- [ ] Banco de dados com disciplinas dinâmicas
+- [ ] Adição de notas e desempenho do aluno
+- [ ] Calendário acadêmico
+- [ ] Sistema de mensagens professor-aluno
+- [ ] Integração com API de horários
+- [ ] Download de materiais da disciplina
+
+## Licença
+
+Este projeto foi desenvolvido para fins educacionais pelos alunos do Mackenzie.
+
+---
