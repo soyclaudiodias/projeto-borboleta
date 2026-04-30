@@ -15,7 +15,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   }, [isAuthenticated, router]);
 
   if (!isAuthenticated) {
-    return <div className="flex items-center justify-center min-h-screen">Redirecionando para login...</div>;
+    return <div>Redirecionando para login...</div>;
   }
 
   return <>{children}</>;

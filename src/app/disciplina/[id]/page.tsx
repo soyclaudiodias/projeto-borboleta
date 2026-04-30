@@ -30,21 +30,20 @@ export default function DisciplinaPage({ params }: { params: Promise<{ id: strin
 
   if (!disciplina) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <header className="bg-gradient-to-r from-red-700 to-red-900 text-white shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 className="text-3xl font-bold">Portal Universitário</h1>
+      <div>
+        <header>
+          <div>
+            <h1>Portal Universitário</h1>
             <button
               onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-lg transition"
             >
               Sair
             </button>
           </div>
         </header>
-        <main className="max-w-4xl mx-auto px-4 py-12 text-center">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Disciplina não encontrada</h2>
-          <Link href="/" className="text-red-700 font-semibold hover:text-red-900">
+        <main>
+          <h2>Disciplina não encontrada</h2>
+          <Link href="/">
             ← Voltar para Home
           </Link>
         </main>
@@ -53,18 +52,17 @@ export default function DisciplinaPage({ params }: { params: Promise<{ id: strin
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       {/* Header/Navigation */}
-      <header className="bg-gradient-to-r from-red-700 to-red-900 text-white shadow-lg">
-        <div className="max-w-4xl mx-auto px-4 py-6 flex justify-between items-center">
+      <header>
+        <div>
           <div>
-            <Link href="/" className="text-red-100 hover:text-white transition">
+            <Link href="/">
               ← Voltar
             </Link>
           </div>
           <button
             onClick={handleLogout}
-            className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-lg transition"
           >
             Sair
           </button>
@@ -72,55 +70,54 @@ export default function DisciplinaPage({ params }: { params: Promise<{ id: strin
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-12">
+      <main>
         {/* Título e Informações Básicas */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8 border-t-4 border-red-700">
-          <div className="flex justify-between items-start mb-4">
+        <div>
+          <div>
             <div>
-              <span className="inline-block bg-red-100 text-red-700 text-sm font-bold px-3 py-1 rounded-full mb-2">
+              <span>
                 Semestre {disciplina.semestre}
               </span>
-              <h1 className="text-4xl font-bold text-gray-800 mb-2">{disciplina.nome}</h1>
-              <p className="text-gray-600 text-lg">{disciplina.descricao}</p>
+              <h1>{disciplina.nome}</h1>
+              <p>{disciplina.descricao}</p>
             </div>
           </div>
         </div>
 
         {/* Informações do Professor e Horário */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-bold text-red-700 mb-4 flex items-center">
-              <span className="text-2xl mr-2">👨‍🏫</span>
+        <div>
+          <div>
+            <h3>
+              <span>👨‍🏫</span>
               Professor
             </h3>
-            <p className="text-gray-800 font-semibold">{disciplina.professor}</p>
+            <p>{disciplina.professor}</p>
           </div>
         </div>
 
         {/* Ementa */}
-        <div className="bg-white rounded-lg shadow p-8 mb-8">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Ementa</h2>
-          <p className="text-gray-700 leading-relaxed">{disciplina.ementa}</p>
+        <div>
+          <h2>Ementa</h2>
+          <p>{disciplina.ementa}</p>
         </div>
 
         {/* Objetivos */}
-        <div className="bg-white rounded-lg shadow p-8 mb-8">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Objetivos da Disciplina</h2>
-          <ul className="space-y-3">
+        <div>
+          <h2>Objetivos da Disciplina</h2>
+          <ul>
             {disciplina.objetivos.map((objetivo, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-red-700 font-bold mr-3">✓</span>
-                <span className="text-gray-700">{objetivo}</span>
+              <li key={index}>
+                <span>✓</span>
+                <span>{objetivo}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Botão Voltar */}
-        <div className="mb-8">
+        <div>
           <Link
             href="/"
-            className="inline-block bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition"
           >
             ← Voltar para Disciplinas
           </Link>
@@ -128,7 +125,7 @@ export default function DisciplinaPage({ params }: { params: Promise<{ id: strin
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-gray-400 text-center py-6 mt-12">
+      <footer>
         <p>&copy; 2024 Portal Universitário. Todos os direitos reservados.</p>
       </footer>
     </div>
